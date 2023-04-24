@@ -6,15 +6,14 @@ module.exports = function (req, res, next) {
     if (!authorizationHeader) {
       return next(ApiError.UnautorizedError());
     }
-    // console.log(authorizationHeader);
+    console.log('header', authorizationHeader);
     const accessToken = authorizationHeader.split(' ')[1];
-
+    console.log('TTTTOKEN', accessToken);
     if (!accessToken) {
-      console.log(1);
       return next(ApiError.UnautorizedError());
     }
     const userData = tokenService.validateAccesToken(accessToken);
-    console.log(userData);
+    // console.log(userData);
     if (!userData) {
       return next(ApiError.UnautorizedError());
     }
