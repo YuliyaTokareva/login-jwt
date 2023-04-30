@@ -59,6 +59,7 @@ export const refreshUser = () => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
     checkAuth().then((userInfo) => {
+      console.log(userInfo);
       if (userInfo.status === 200) {
         dispatch(loginUserRecieved(userInfo.data.user));
       } else {
