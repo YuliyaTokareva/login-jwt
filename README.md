@@ -4,10 +4,10 @@
 
 ### Options:
 
-- Registration
-- Confirm letter
+- Registration — Done
+- Confirm letter — Done
 - Autentification
-- Logeout.
+- Logout.
 
 ## Author
 
