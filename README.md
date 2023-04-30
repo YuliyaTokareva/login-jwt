@@ -6,7 +6,7 @@
 
 - Registration — Done
 - Confirm letter — Done
-- Autentification — Done
+- Autentification — Soon
 - Logout.
 
 ## Author
