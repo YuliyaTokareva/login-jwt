@@ -56,7 +56,9 @@ export const checkAuth = async () => {
         'Content-Type': 'application/json'
       }
     });
-    localStorage.setItem('token', response.data.accessToken);
+    const data = response.data;
+    localStorage.setItem('token', data.accessToken);
+    console.log(localStorage.getItem('token'));
 
     return response;
   } catch (error) {
