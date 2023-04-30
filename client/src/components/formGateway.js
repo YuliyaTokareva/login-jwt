@@ -1,6 +1,6 @@
 import axios from 'axios';
 import $api from '../http/index';
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export const fetchLoginUser = async (userData) => {
   try {
@@ -50,7 +50,7 @@ export const checkAuth = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/refresh`, {
       withCredentials: true,
-
+      baseURL: BASE_URL,
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
