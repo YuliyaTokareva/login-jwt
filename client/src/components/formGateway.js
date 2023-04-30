@@ -58,9 +58,9 @@ export const checkAuth = async () => {
     });
     const data = response.data;
     localStorage.setItem('token', data.accessToken);
-    console.log(localStorage.getItem('token'));
+    console.log(data);
 
-    return response;
+    return data;
   } catch (error) {
     console.log(error.response?.data?.message);
     return error.response?.data?.message;
