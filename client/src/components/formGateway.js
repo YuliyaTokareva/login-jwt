@@ -7,6 +7,7 @@ export const fetchLoginUser = async (userData) => {
     const response = await $api.post('/login', userData);
 
     const data = response.data;
+    localStorage.removeItem('token');
     localStorage.setItem('token', data.accessToken);
     console.log(localStorage.getItem('token'));
     console.log(data);
