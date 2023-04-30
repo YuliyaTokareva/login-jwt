@@ -8,6 +8,8 @@ export const fetchLoginUser = async (userData) => {
 
     const data = response.data;
     localStorage.setItem('token', data.accessToken);
+    console.log(localStorage.getItem('token'));
+    console.log(data);
     return response;
   } catch (error) {
     console.log(error.response?.data?.message);
@@ -19,7 +21,7 @@ export const registrationUser = async (userData) => {
   try {
     const response = await $api.post('/registration', userData);
     localStorage.setItem('token', response.data.accessToken);
-
+    console.log(localStorage.getItem('token'));
     return response.data.user;
   } catch (error) {
     console.log(error.response?.data?.message);
@@ -31,7 +33,7 @@ export const logoutUser = async () => {
   try {
     const response = await $api.post('/logout', userData);
     localStorage.removeItem('token');
-
+    console.log(localStorage.getItem('token'));
     return response.data.user;
   } catch (error) {
     console.log(error.response?.data?.message);
