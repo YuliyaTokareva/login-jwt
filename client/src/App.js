@@ -10,12 +10,12 @@ import { checkAuth } from '../src/components/formGateway';
 import Home from './pages/Home';
 
 function App() {
-  // useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     const token = localStorage.getItem('token');
-  //     checkAuth();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      // const token = localStorage.getItem('token');
+      checkAuth();
+    }
+  }, []);
 
   return (
     <Provider store={store}>
