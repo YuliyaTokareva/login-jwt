@@ -53,7 +53,7 @@ export const checkAuth = async () => {
       baseURL: BASE_URL,
       headers: {
         // Authorization: `Bearer ${token}`,
-        Authorization: 'Bearer ' + token,
+        Authorization: `Bearer ${token.toString()}`,
         'Content-Type': 'application/json'
       }
     });
