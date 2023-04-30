@@ -51,7 +51,7 @@ export const checkAuth = async () => {
       withCredentials: true,
 
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NDE2YWNmYzI3ZDUzZjc2NmNmY2I0YiIsImlhdCI6MTY4MjE3NzUwOSwiZXhwIjoxNjg0NzY5NTA5fQ.J6b3lsh5hKv2dwnr1eVvV3p0Xy1CwJxiZIN0ZkG76d8`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     });
