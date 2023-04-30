@@ -54,7 +54,7 @@ export const checkAuth = async () => {
       headers: {
         // Authorization: `Bearer ${token}`,
         Authorization: `Bearer ${token.toString()}`,
-        'Content-Type': 'application/json'
+        'content-type': 'application/json'
       }
     });
     const data = response.data;
