@@ -52,7 +52,7 @@ export const checkAuth = async () => {
       withCredentials: true,
 
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NDE2YWNmYzI3ZDUzZjc2NmNmY2I0YiIsImlhdCI6MTY4Mjg2MzM4MCwiZXhwIjoxNjg1NDU1MzgwfQ.s3PVxMF0qfv5dbGEjbGW4OCMxUfOqT1VaSdf8na2SDg`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     });
