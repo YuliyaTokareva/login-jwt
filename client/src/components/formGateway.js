@@ -5,9 +5,7 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 export const fetchLoginUser = async (userData) => {
   try {
     const response = await $api.post('/login', userData);
-
     const data = response.data;
-
     localStorage.setItem('token', data.accessToken);
     console.log(localStorage.getItem('token'));
     console.log(data);
