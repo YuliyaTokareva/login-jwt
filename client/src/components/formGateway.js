@@ -48,13 +48,13 @@ export const checkAuth = async () => {
 
   try {
     const response = await axios.get(`${BASE_URL}/refresh`, {
-      withCredentials: true,
-      baseURL: BASE_URL,
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NGU4M2RhMDQ4ZDA0NzVkOTIyNjJjYyIsImlhdCI6MTY4MjkzOTc1OSwiZXhwIjoxNjg1NTMxNzU5fQ.9hPp41LeF4lOop6LOyPpw3AsDg0TCCdHTsA2vDvNlpo`,
-        // Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'content-type': 'application/json'
-      }
+      withCredentials: true
+      // baseURL: BASE_URL,
+      // headers: {
+      //   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NGU4M2RhMDQ4ZDA0NzVkOTIyNjJjYyIsImlhdCI6MTY4MjkzOTc1OSwiZXhwIjoxNjg1NTMxNzU5fQ.9hPp41LeF4lOop6LOyPpw3AsDg0TCCdHTsA2vDvNlpo`,
+      //   // Authorization: `Bearer ${localStorage.getItem('token')}`,
+      //   'content-type': 'application/json'
+      // }
     });
     const data = response.data;
 
