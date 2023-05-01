@@ -14,7 +14,6 @@ function Home({ userAuth, refreshUser, userErrors }) {
       refreshUser();
     }
   }, []);
-  console.log(document.cookie);
 
   return (
     <>
