@@ -44,19 +44,10 @@ export const logoutUser = async () => {
 const getToken = () => {
   return localStorage.getItem('token');
 };
-export const checkAuth = async () => {
-  const token = getToken();
 
+export const checkAuth = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/refresh`, {
-      withCredentials: true,
-      baseURL: BASE_URL,
-      headers: {
-        // Authorization: `Bearer ${token}`,
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'content-type': 'application/json'
-      }
-    });
+    const response = await $api.get(`${BASE_URL}/refresh`);
     const data = response.data;
 
     localStorage.setItem('token', data.accessToken);
@@ -68,3 +59,28 @@ export const checkAuth = async () => {
     return error.response?.data?.message;
   }
 };
+// };
+// export const checkAuth = async () => {
+//   const token = getToken();
+
+//   try {
+//     const response = await axios.get(`${BASE_URL}/refresh`, {
+//       withCredentials: true,
+//       baseURL: BASE_URL,
+//       headers: {
+//         // Authorization: `Bearer ${token}`,
+//         Authorization: `Bearer ${localStorage.getItem('token')}`,
+//         'content-type': 'application/json'
+//       }
+//     });
+//     const data = response.data;
+
+//     localStorage.setItem('token', data.accessToken);
+//     console.log(localStorage.getItem('token'));
+//     console.log(data);
+//     return response;
+//   } catch (error) {
+//     console.log(error.response?.data?.message);
+//     return error.response?.data?.message;
+//   }
+// };
