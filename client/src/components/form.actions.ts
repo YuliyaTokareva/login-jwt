@@ -1,17 +1,22 @@
 import { error } from 'console';
 import { off } from 'process';
-import { fetchLoginUser, checkAuth } from './formGateway';
+import { fetchLoginUser, checkAuth, logoutUser } from './formGateway';
 
 export const SEND_FORM = 'SEND_FORM';
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const GET_USER_ERRORS = 'GET_USER_ERRORS';
+export const USER_LOGOUT = 'USER_LOGOUT';
+export const IS_LOADING = 'IS_LOADING';
 
-export const postLoginForm = (isSendForm) => {
+export const logoutUserRecieved = () => {
   const action = {
-    type: SEND_FORM,
-    payload: {
-      isSendForm
-    }
+    type: USER_LOGOUT
+  };
+  return action;
+};
+export const logadingRecieved = () => {
+  const action = {
+    type: IS_LOADING
   };
   return action;
 };
@@ -58,6 +63,7 @@ export const postRegisterUser = (userData) => {
 export const refreshUser = () => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
+    dispatch(logadingRecieved());
     checkAuth().then((userInfo) => {
       console.log(userInfo);
       if (userInfo.status === 200) {
@@ -66,6 +72,13 @@ export const refreshUser = () => {
         dispatch(userErrors(userInfo));
       }
     });
+  };
+  return thunkAction;
+};
+export const logOutUser = (userData) => {
+  // eslint-disable-next-line
+  const thunkAction = function (dispatch) {
+    logoutUser(userData).then(() => dispatch(logoutUserRecieved()));
   };
   return thunkAction;
 };

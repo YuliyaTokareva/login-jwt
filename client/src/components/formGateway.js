@@ -28,7 +28,7 @@ export const registrationUser = async (userData) => {
   }
 };
 
-export const logoutUser = async () => {
+export const logoutUser = async (userData) => {
   try {
     const response = await $api.post('/logout', userData);
     localStorage.removeItem('token');
@@ -48,23 +48,11 @@ export const checkAuth = async () => {
 
   try {
     const response = await axios.get(`${BASE_URL}/refresh`, {
-      withCredentials: true,
-      // baseURL: BASE_URL,
-      // headers: {
-      //   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NGU4M2RhMDQ4ZDA0NzVkOTIyNjJjYyIsImlhdCI6MTY4MjkzOTc1OSwiZXhwIjoxNjg1NTMxNzU5fQ.9hPp41LeF4lOop6LOyPpw3AsDg0TCCdHTsA2vDvNlpo`,
-      //   // Authorization: `Bearer ${localStorage.getItem('token')}`,
-      //   'content-type': 'application/json'
-      // }
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=UTF-8'
-      }
+      withCredentials: true
     });
     const data = response.data;
 
     localStorage.setItem('token', data.accessToken);
-    console.log(localStorage.getItem('token'));
-    console.log(data);
     return response;
   } catch (error) {
     console.log(error.response?.data?.message);

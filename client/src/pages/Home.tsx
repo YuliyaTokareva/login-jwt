@@ -8,12 +8,16 @@ import Form from '../components/Form';
 import AdminPanel from '../components/adminPanel/AdminPanel';
 import ErrorsBlock from '../components/errorsBlock/ErrorsBlock';
 
-function Home({ userAuth, refreshUser, userErrors }) {
+function Home({ userAuth, refreshUser, userErrors, isLoadingSelector }) {
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      refreshUser();
-    }
+    // if (localStorage.getItem('token')) {
+    //   refreshUser();
+    // }
+    refreshUser();
   }, []);
+  if (isLoadingSelector) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -26,7 +30,8 @@ const mapState = (state) => {
   return {
     userData: formSelectors.userDataSelector(state),
     userAuth: formSelectors.userAuthSelector(state),
-    userErrors: formSelectors.userErrorsSelector(state)
+    userErrors: formSelectors.userErrorsSelector(state),
+    isLoadingSelector: formSelectors.isLoadingSelector(state)
   };
 };
 const mapDispatch = (dispatch) => {

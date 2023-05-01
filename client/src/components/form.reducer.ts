@@ -1,24 +1,31 @@
-import { SEND_FORM, GET_USER_DATA, GET_USER_ERRORS } from './form.actions';
+import { GET_USER_DATA, GET_USER_ERRORS, USER_LOGOUT, IS_LOADING } from './form.actions';
 const initialState = {
   user: {},
-  isSending: false,
+  isLoading: false,
   isOuth: false,
   errors: []
 };
 
 const formReduser = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_FORM: {
+    case IS_LOADING: {
       return {
         ...state,
-        isSendForm: action.payload.isSendForm,
-        user: {}
+        isLoading: true
+      };
+    }
+    case USER_LOGOUT: {
+      return {
+        ...state,
+        isOuth: false,
+        user: {},
+        errors: [`User isn't autorize`]
       };
     }
     case GET_USER_DATA: {
       return {
         ...state,
-
+        isLoading: false,
         user: action.payload.userData,
         isOuth: true,
         errors: []
@@ -27,6 +34,7 @@ const formReduser = (state = initialState, action) => {
     case GET_USER_ERRORS: {
       return {
         ...state,
+        isLoading: false,
         errors: [action.payload.loginErrors]
       };
     }

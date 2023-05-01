@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import * as formActions from './form.actions';
 import * as formSelectors from './form.selectors';
-import { registrationUser } from '../components/formGateway';
-const Form = ({ sendLoginForm, userData, userAuth }) => {
+
+const Form = ({ sendLoginForm, userData, userAuth, postRegisterUser }) => {
   const [dataForm, setDataForm] = useState({
     email: '',
     password: ''
@@ -24,7 +24,8 @@ const Form = ({ sendLoginForm, userData, userAuth }) => {
 
   const handlerSubmitRegister = (e) => {
     e.preventDefault();
-    registrationUser(dataForm);
+    postRegisterUser(dataForm);
+    // registrationUser(dataForm);
   };
 
   useEffect(() => {
@@ -71,7 +72,8 @@ const mapState = (state) => {
 };
 const mapDispatch = (dispatch) => {
   return {
-    sendLoginForm: (dataForm) => dispatch(formActions.postLoginUser(dataForm))
+    sendLoginForm: (dataForm) => dispatch(formActions.postLoginUser(dataForm)),
+    postRegisterUser: (dataForm) => dispatch(formActions.postRegisterUser(dataForm))
   };
 };
 export default connect(mapState, mapDispatch)(Form);
