@@ -18,7 +18,7 @@ export const registrationUser = async (userData) => {
   try {
     const response = await $api.post('/registration', userData);
     localStorage.setItem('token', response.data.accessToken);
-    return response.data.user;
+    return response;
   } catch (error) {
     console.log(error.response?.data?.message);
     return error.response?.data?.message;

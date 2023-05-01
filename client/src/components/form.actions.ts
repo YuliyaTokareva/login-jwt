@@ -1,6 +1,6 @@
 import { error } from 'console';
 import { off } from 'process';
-import { fetchLoginUser, checkAuth, logoutUser } from './formGateway';
+import { fetchLoginUser, checkAuth, logoutUser, registrationUser } from './formGateway';
 
 export const SEND_FORM = 'SEND_FORM';
 export const GET_USER_DATA = 'GET_USER_DATA';
@@ -55,9 +55,9 @@ export const postLoginUser = (userData) => {
 export const postRegisterUser = (userData) => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
-    fetchLoginUser(userData).then((userInfo) => {
+    registrationUser(userData).then((userInfo) => {
       if (userInfo.status === 200) {
-        dispatch(loginUserRecieved(userInfo));
+        dispatch(loginUserRecieved(userInfo.data.user));
       } else {
         dispatch(userErrors(userInfo));
       }

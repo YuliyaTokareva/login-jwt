@@ -50,7 +50,7 @@ const Form = ({ sendLoginForm, userData, userAuth, postRegisterUser }) => {
           onChange={(e) => handleChange(e)}
         />
         <input
-          type="password"
+          type="text"
           name="password"
           id="password"
           placeholder="Password"
