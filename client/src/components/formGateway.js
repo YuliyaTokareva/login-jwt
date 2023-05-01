@@ -46,8 +46,18 @@ const getToken = () => {
 };
 
 export const checkAuth = async () => {
+  const token = getToken();
+
   try {
-    const response = await $api.get(`/refresh`);
+    const response = await axios.get(`${BASE_URL}/refresh`, {
+      withCredentials: true,
+      baseURL: BASE_URL,
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhNHRvbmFkb0BnbWFpbC5jb20iLCJpZCI6IjY0NGU4M2RhMDQ4ZDA0NzVkOTIyNjJjYyIsImlhdCI6MTY4MjkzOTc1OSwiZXhwIjoxNjg1NTMxNzU5fQ.9hPp41LeF4lOop6LOyPpw3AsDg0TCCdHTsA2vDvNlpo`,
+        // Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'content-type': 'application/json'
+      }
+    });
     const data = response.data;
 
     localStorage.setItem('token', data.accessToken);
@@ -59,28 +69,3 @@ export const checkAuth = async () => {
     return error.response?.data?.message;
   }
 };
-// };
-// export const checkAuth = async () => {
-//   const token = getToken();
-
-//   try {
-//     const response = await axios.get(`${BASE_URL}/refresh`, {
-//       withCredentials: true,
-//       baseURL: BASE_URL,
-//       headers: {
-//         // Authorization: `Bearer ${token}`,
-//         Authorization: `Bearer ${localStorage.getItem('token')}`,
-//         'content-type': 'application/json'
-//       }
-//     });
-//     const data = response.data;
-
-//     localStorage.setItem('token', data.accessToken);
-//     console.log(localStorage.getItem('token'));
-//     console.log(data);
-//     return response;
-//   } catch (error) {
-//     console.log(error.response?.data?.message);
-//     return error.response?.data?.message;
-//   }
-// };
