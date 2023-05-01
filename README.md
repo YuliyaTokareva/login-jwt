@@ -9,6 +9,32 @@
 - Autentification
 - Logout.
 
+### API:
+
+- MongoDB
+
+### Frontend:
+
+- React
+- React Hoocks
+- ESLint
+- Webpack
+- Babel
+- Prettier
+- axios(+ interceptors)
+
+### Backend:
+
+- Express
+- Express-validator
+- Nodemon
+- Dotenv
+- Mongoose
+- Jsonwebtoken
+- Bcrypt
+- Uuid
+- Nodemailer
+
 ## Author
 
 - Yuliia Tokarieva
