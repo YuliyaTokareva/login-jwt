@@ -55,7 +55,13 @@ export const postLoginUser = (userData) => {
 export const postRegisterUser = (userData) => {
   // eslint-disable-next-line
   const thunkAction = function (dispatch) {
-    fetchLoginUser(userData).then((userInfo) => dispatch(loginUserRecieved(userInfo)));
+    fetchLoginUser(userData).then((userInfo) => {
+      if (userInfo.status === 200) {
+        dispatch(loginUserRecieved(userInfo));
+      } else {
+        dispatch(userErrors(userInfo));
+      }
+    });
   };
   return thunkAction;
 };
