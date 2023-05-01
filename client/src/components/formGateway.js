@@ -8,7 +8,7 @@ export const fetchLoginUser = async (userData) => {
 
     const data = response.data;
 
-    localStorage.setItem('token', data.accessToken);
+    // localStorage.setItem('token', data.accessToken);
     console.log(localStorage.getItem('token'));
     console.log(data);
     return response;
