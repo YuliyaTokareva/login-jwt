@@ -47,7 +47,7 @@ const getToken = () => {
 
 export const checkAuth = async () => {
   try {
-    const response = await $api.get(`${BASE_URL}/refresh`);
+    const response = await $api.get(`/refresh`);
     const data = response.data;
 
     localStorage.setItem('token', data.accessToken);
