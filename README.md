@@ -4,9 +4,9 @@
 
 ### Options:
 
-- Registration — Done
-- Confirm letter — Done
-- Autentification — Soon
+- Registration or Login
+- Confirm letter
+- Autentification
 - Logout.
 
 ## Author
