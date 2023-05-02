@@ -71,7 +71,6 @@ export const refreshUser = () => {
   const thunkAction = function (dispatch) {
     dispatch(logadingRecieved());
     checkAuth().then((userInfo) => {
-      console.log(userInfo);
       if (userInfo.status === 200) {
         dispatch(loginUserRecieved(userInfo.data.user));
       } else {

@@ -1,0 +1,12 @@
+@import '../../breakpoints.scss';
+@import '../../variables.scss';
+.form-registration {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  padding: 10px 0;
+  margin: 20px 0;
+  @include for-tablet-up {
+    flex-direction: row;
+  }
+}

@@ -10,7 +10,8 @@ const AdminPanel = ({ userData, logOutUser }) => {
   };
   return (
     <div>
-      <h1 className="App">{`Hi ${userData.email}`}</h1>
+      <p>{`Your email: ${userData.email}`}</p>
+      <p>{`Your id: ${userData.id}`}</p>
       <button onClick={(e) => handlerSubmitLogOut(e)}>Logout</button>
     </div>
   );

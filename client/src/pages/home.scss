@@ -1,0 +1,34 @@
+@import '../breakpoints.scss';
+@import 'src/variables.scss';
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  max-height: 100vh;
+  flex-direction: column;
+  @include for-tablet-up {
+    flex-direction: row;
+  }
+}
+.left-part,
+.right-part {
+  /// width: 50%;
+  height: 50vh;
+  max-height: 50vh;
+
+  @include for-tablet-up {
+    height: 100vh;
+    max-height: 100vh;
+    width: 50%;
+  }
+}
+.left-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.right-part {
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -2,18 +2,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
   let mode = 'development';
+
   if (process.env.NODE_ENV === 'production') {
     mode = 'production';
   }
   const config = {
     entry: './src/index.tsx',
     output: {
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist')
     },
     module: {
       rules: [
@@ -38,7 +41,10 @@ module.exports = (env, argv) => {
     },
 
     resolve: {
-      extensions: ['.js', '.jsx', '.tsx', '.ts']
+      extensions: ['.js', '.jsx', '.tsx', '.ts'],
+      alias: {
+        '@img': path.resolve(__dirname, 'src/img/')
+      }
     },
     plugins: [
       new webpack.ProgressPlugin(),

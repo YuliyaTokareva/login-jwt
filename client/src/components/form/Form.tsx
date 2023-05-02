@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import * as formActions from './form.actions';
-import * as formSelectors from './form.selectors';
+import * as formActions from '../form.actions';
+import * as formSelectors from '../form.selectors';
+import './form.scss';
 
 const Form = ({ sendLoginForm, userData, userAuth, postRegisterUser }) => {
   const [dataForm, setDataForm] = useState({
@@ -39,8 +40,7 @@ const Form = ({ sendLoginForm, userData, userAuth, postRegisterUser }) => {
 
   return (
     <>
-      <h1 className="App">{userAuth ? `Hi ${userData.email}` : 'Login or Register'}</h1>
-      <form>
+      <form className="form-registration">
         <input
           type="text"
           name="email"

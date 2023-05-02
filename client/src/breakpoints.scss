@@ -1,0 +1,13 @@
+$lg: 1400px;
+$md: 760px;
+$xs: 360px;
+@mixin for-tablet-up {
+  @media screen and (min-width: $md) {
+    @content;
+  }
+}
+@mixin for-tablet-down {
+  @media screen and (max-width: ($md - 1)) {
+    @content;
+  }
+}

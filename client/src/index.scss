@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import 'breakpoints.scss';
+@import 'src/variables.scss';
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  min-height: 100vh;
+  color: $color-main;
+  font-family: 'Overpass', sans-serif;
+  background-color: $main-bg;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-weight: 800;
+  font-size: 2em;
+  line-height: 1.5em;
+  text-align: center;
+  @include for-tablet-up {
+    font-size: 3.5em;
+    line-height: 1.5em;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 3px;
+  border: none;
+
+  @include for-tablet-up {
+    width: 100px;
+  }
+  &:hover {
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+  }
+}
+.page-container {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include for-tablet-down {
+    padding: 0 24px;
+  }
 }
