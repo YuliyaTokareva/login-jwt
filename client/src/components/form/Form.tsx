@@ -41,24 +41,28 @@ const Form = ({ sendLoginForm, userData, userAuth, postRegisterUser }) => {
   return (
     <>
       <form className="form-registration">
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Email"
-          value={dataForm.email}
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="text"
-          name="password"
-          id="password"
-          placeholder="Password"
-          value={dataForm.password}
-          onChange={(e) => handleChange(e)}
-        />
-        <button onClick={(e) => handlerSubmitLogin(e)}>Login</button>
-        <button onClick={(e) => handlerSubmitRegister(e)}>Register</button>
+        <div className="form-registration__inputs-block">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value={dataForm.email}
+            onChange={(e) => handleChange(e)}
+          />
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Password"
+            value={dataForm.password}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className="form-registration__buttons-block">
+          <button onClick={(e) => handlerSubmitLogin(e)}>Login</button>
+          <button onClick={(e) => handlerSubmitRegister(e)}>Register</button>
+        </div>
       </form>
     </>
   );

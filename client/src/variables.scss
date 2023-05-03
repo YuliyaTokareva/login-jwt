@@ -1,20 +1,18 @@
 ///Text color
 
-$color-dark: #000000;
+$color-dark: #100c46;
 $color-gray: #8e8e93;
 $color-main: rgb(255, 255, 255);
 $color-dark-gray: #081f32;
 ///Bg color
 $main-bg: rgba(98, 87, 254, 1);
-
+$light-bg: #ffffff;
 //shadow color
 
-$box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12),
-  0px 2px 4px rgba(0, 0, 0, 0.14);
+$box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
 
 // border-radius
-$br: 4px;
-$br-ls: 8px;
+$br: 3px;
 
 // border
 $border-search: 1px solid rgba(0, 0, 0, 0.5);

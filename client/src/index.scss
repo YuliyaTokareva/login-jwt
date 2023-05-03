@@ -26,11 +26,12 @@ h6 {
 h1 {
   font-weight: 800;
   font-size: 2em;
-  line-height: 1.5em;
+  line-height: 1.2em;
   text-align: center;
+  margin-bottom: 10px;
   @include for-tablet-up {
     font-size: 3.5em;
-    line-height: 1.5em;
+    line-height: 1.2em;
   }
 }
 
@@ -43,24 +44,17 @@ button {
   margin: 0;
   padding: 0;
   cursor: pointer;
-  background: #ffffff;
-  border-radius: 3px;
+  background: $light-bg;
+  border-radius: $br;
   border: none;
-
-  @include for-tablet-up {
-    width: 100px;
+  color: $color-dark;
+  line-height: 1.5em;
+  min-width: 100px;
+  width: 100%;
+  @include for-laptop-up {
+    min-width: 100px;
   }
   &:hover {
-    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
-  }
-}
-.page-container {
-  max-width: 1020px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @include for-tablet-down {
-    padding: 0 24px;
+    box-shadow: $box-shadow;
   }
 }
