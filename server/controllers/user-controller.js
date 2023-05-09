@@ -63,8 +63,9 @@ class UserController {
       res.cookie('refreshToken', userData.refreshToken, {
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        domain: '.netlify.app'
-        // secure: true
+        domain: '.netlify.app',
+        secure: true,
+        sameSite: 'none'
       });
       console.log(res);
       return res.json(userData);
