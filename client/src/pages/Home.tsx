@@ -15,21 +15,21 @@ function Home({ userAuth, refreshUser, userErrors, isLoadingSelector }) {
   useEffect(() => {
     refreshUser();
   }, []);
-  if (isLoadingSelector) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoadingSelector) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="main-content">
       <div className="left-part">
         <h1 className="title-text">{userAuth ? `Welcom!` : 'Login or Register'}</h1>
-        <div className="left-part__main-block-info">{!userAuth ? <Form /> : <AdminPanel />}</div>
+        <div className="left-part__main-block-info">
+          {isLoadingSelector ? 'Loading...' : '' || !userAuth ? <Form /> : <AdminPanel />}
+        </div>
 
         <div className="left-part__error-message"> {!userErrors ? '' : <ErrorsBlock />}</div>
       </div>
-      <div className="right-part" style={{ backgroundImage: `url(${mainImg})` }}>
-        {/* <img src={`${mainImg}`} alt="bicycle in first screen" /> */}
-      </div>
+      <div className="right-part" style={{ backgroundImage: `url(${mainImg})` }}></div>
     </div>
   );
 }
