@@ -1,12 +1,24 @@
 import { GET_USER_DATA, GET_USER_ERRORS, USER_LOGOUT, IS_LOADING } from './form.actions';
-const initialState = {
+import { IUser } from '../models/IUser';
+import { UserState } from '../models/UserState';
+
+const initialState: UserState = {
   user: {},
   isLoading: false,
   isOuth: false,
   errors: []
 };
-
-const formReduser = (state = initialState, action) => {
+interface FormReducerAction {
+  type: string;
+  payload: {
+    userData: IUser;
+    loginErrors: string;
+  };
+}
+export interface FormState {
+  formData: UserState;
+}
+const formReduser = (state = initialState, action: FormReducerAction) => {
   switch (action.type) {
     case IS_LOADING: {
       return {

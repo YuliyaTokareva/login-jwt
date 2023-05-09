@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import { connect } from 'react-redux';
 
 import * as formActions from '../components/form.actions';
@@ -11,39 +10,44 @@ import mainImg from '@img/mainImg.png';
 
 import './home.scss';
 
-function Home({ userAuth, refreshUser, userErrors, isLoadingSelector }) {
+interface HomeProps {
+  userAuth: boolean;
+  refreshUser: () => void;
+  userErrors: string[];
+  isLoading: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({ userAuth, refreshUser, userErrors, isLoading }) => {
   useEffect(() => {
     refreshUser();
   }, []);
-  // if (isLoadingSelector) {
-  //   return <div>Loading...</div>;
-  // }
 
   return (
     <div className="main-content">
       <div className="left-part">
         <h1 className="title-text">{userAuth ? `Welcom!` : 'Login or Register'}</h1>
         <div className="left-part__main-block-info">
-          {isLoadingSelector ? 'Loading...' : '' || !userAuth ? <Form /> : <AdminPanel />}
+          {isLoading ? 'Loading...' : '' || !userAuth ? <Form /> : <AdminPanel />}
         </div>
-
         <div className="left-part__error-message"> {!userErrors ? '' : <ErrorsBlock />}</div>
       </div>
       <div className="right-part" style={{ backgroundImage: `url(${mainImg})` }}></div>
     </div>
   );
-}
+};
+
 const mapState = (state) => {
   return {
-    userData: formSelectors.userDataSelector(state),
     userAuth: formSelectors.userAuthSelector(state),
     userErrors: formSelectors.userErrorsSelector(state),
-    isLoadingSelector: formSelectors.isLoadingSelector(state)
+    isLoading: formSelectors.isLoadingSelector(state)
   };
 };
+
 const mapDispatch = (dispatch) => {
   return {
     refreshUser: () => dispatch(formActions.refreshUser())
   };
 };
+
 export default connect(mapState, mapDispatch)(Home);
